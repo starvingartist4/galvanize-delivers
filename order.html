@@ -100,7 +100,7 @@
           </div>
           <form class="col s6 order-form">
             <!-- order forms and submit button and subtotals -->
-            <div class="row">
+            <div class="row receipt-table-row">
               <div class="col s12 receipt-table-div">
                 <table class="striped">
                   <thead>
@@ -118,30 +118,62 @@
                 </table>
               </div>
             </div>
+            <div class="row subtotalRow">
+              <div class="col s3 push-s7">
+                <strong>Subtotal</strong>
+              </div>
+              <div class="col s2 push-s7">
+                <strong id="subtotal" class="right"></strong>
+              </div>
+              <!-- <table>
+                <tbody>
+                  <tr>
+                    <td>Tax</td>
+                    <td>$0.00</td>
+                  </tr>
+                </tbody>
+              </table> -->
+            </div>
+            <div class="row taxRow">
+              <div class="col s3 push-s7">
+                <strong>Tax</strong>
+              </div>
+              <div class="col s2 push-s7">
+                <strong id="tax" class="right"></strong>
+              </div>
+            </div>
+            <div class="row totalRow">
+              <div class="col s3 push-s7">
+                <strong>Total</strong>
+              </div>
+              <div class="col s2 push-s7">
+                <strong id="total" class="right"></strong>
+              </div>
+            </div>
             <div class="row name_div">
-              <div class="col s12 input-field">
+              <div class="input-field col s12">
                 <i class="material-icons pink-text prefix">account_circle</i>
                 <label for="name" class="grey-text">Name</label>
-                <input id="name" type="text" class="validate">
+                <input id="name" type="text" class="validate" required>
               </div>
             </div>
             <div class="row phone_div">
               <div class="col s12 input-field">
                 <i class="material-icons pink-text prefix">phone</i>
                 <label for="name" class="grey-text">Phone Number</label>
-                <input id="phone" type="tel" class="validate">
+                <input id="phone" type="tel" class="validate" required>
               </div>
             </div>
             <div class="row address_div">
               <div class="col s12 input-field">
                 <i class="material-icons pink-text prefix">business</i>
                 <label for="name" class="grey-text">Address</label>
-                <textarea id="address1" type="text" class="validate materialize-textarea"></textarea>
+                <textarea id="address1" type="text" class="validate materialize-textarea" required></textarea>
               </div>
             </div>
             <div class="row submit-div">
               <div class="col s8 push-s2 center-align">
-                <button type="button" class="btn btn-primary pink white-text center">PLACE ORDER</button>
+                <button type="button" class="btn btn-primary pink white-text center" id="submit" validate>PLACE ORDER</button>
               </div>
             </div>
           </form>

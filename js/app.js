@@ -1,30 +1,40 @@
 let receiptTable = document.getElementsByClassName('receipt-table')[0];
-console.log(receiptTable);
 let addToOrderBtns = document.getElementsByClassName('addToOrder');
-console.log(addToOrderBtns);
 let itemNames = document.getElementsByClassName('item-name');
-console.log(itemNames);
 let itemPrices = document.getElementsByClassName('item-price');
-console.log(itemPrices);
+let subtotalStr = document.getElementById('subtotal');
+let subtotal = 0.00;
+subtotalStr.innerText = '$' + subtotal.toFixed(2);
+let taxStr = document.getElementById('tax');
+let tax = 0.00;
+taxStr.innerText = '$' + tax.toFixed(2);
+let totalStr = document.getElementById('total');
+let total = 0.00;
+totalStr.innerText = '$' + total.toFixed(2);
 for (var i = 0; i < addToOrderBtns.length; i++) {
   let btn = addToOrderBtns[i];
-  console.log(btn);
   btn.addEventListener('click', function(evt) {
     let newTableEntry = document.createElement('TR');
     let nameTableData = document.createElement('TD');
     let priceTableData = document.createElement('TD');
+    priceTableData.classList.add('right');
     let itemName = this.parentNode.parentNode.children[1].children[0].innerText;
     let itemPrice = this.parentNode.parentNode.children[1].children[1].innerText;
-    console.log(itemName);
-    let addedEntryName = itemName;
-    console.log(addedEntryName);
-    let addedEntryPrice = itemPrice;
-    console.log(addedEntryPrice);
-    nameTableData.innerText = addedEntryName;
-    priceTableData.innerText = addedEntryPrice;
+    nameTableData.innerText = itemName;
+    priceTableData.innerText = itemPrice;
+    let priceNum = parseFloat(itemPrice.slice(1, itemPrice.length));
+    subtotal += priceNum;
+    tax = subtotal * 0.1;
+    total = subtotal + tax;
+    subtotalStr.innerText = '$' + subtotal.toFixed(2);
+    taxStr.innerText = '$' + tax.toFixed(2);
+    totalStr.innerText = '$' + total.toFixed(2);
     newTableEntry.appendChild(nameTableData);
     newTableEntry.appendChild(priceTableData);
-    console.log(newTableEntry);
     receiptTable.appendChild(newTableEntry);
   });
 }
+// let submit = document.getElementById('submit');
+// submit.addEventListener('click', function() {
+//   if ()
+// });
