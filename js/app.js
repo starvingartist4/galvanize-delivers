@@ -34,7 +34,25 @@ for (var i = 0; i < addToOrderBtns.length; i++) {
     receiptTable.appendChild(newTableEntry);
   });
 }
-// let submit = document.getElementById('submit');
-// submit.addEventListener('click', function() {
-//   if ()
-// });
+let submit = document.getElementById('submit');
+submit.addEventListener('click', function() {
+  let cart = document.getElementsByClassName('receipt-table')[0];
+  let nameInput = document.getElementById('name');
+  let phoneInput = document.getElementById('phone');
+  let addressInput = document.getElementById('address');
+  if (cart.innerText==='') {
+    Materialize.toast("Please add items to your cart!")
+  }
+  if (nameInput.classList[1]!=='valid') {
+    Materialize.toast("Don't forget to submit your name!", 4000);
+  }
+  if (phoneInput.classList[1]!=='valid') {
+    Materialize.toast("Don't forget to submit your phone number!", 4000);
+  }
+  if (addressInput.classList[2]!=='valid') {
+    Materialize.toast("Don't forget to submit your address!", 4000);
+  }
+  if (cart.innerText!=='' && nameInput.classList[1]==='valid' && phoneInput.classList[1]==='valid' && addressInput.classList[2]==='valid') {
+    Materialize.toast("Success! Unfortunately, Galvanize only caters, so don't be a hater; we'll see you later! ;-D ");
+  }
+});
